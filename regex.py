@@ -24,42 +24,69 @@ def find_word(string_list):
 
     # initialize an empty list
 
-    # define the regular expression
+    newList = []    
 
-    # loop through each line of the string list 
+    # define the regular expression
+    expression = "\b[A-Za-z]+[0-9]{3}[A-Za-z]+\b"
+
+    # loop through each line of the string list
+    for item in string_list:
+        tempList = re.findall(expression, item)
+        for item in tempList:
+            newList.append(item)
+
+        
 
     # find all the words that match the regular expression in each line
-    
+
+
     # loop through the found words and add the words to your empty list 
 
     #return the list of all words that start with the letter B, E, or T
-    pass
+    newNewList = []
+
+    for item in newList:
+        if item.startswith('B') or item.startswith('E') or item.startswith('T'):
+            newNewList.append(item)
+    return newNewList
 
 
 def find_days(string_list):
     """ Return a list of days from the list of strings the dates format in the text are MM/DD/YYYY. """  
 
     # initialize an empty list
-
+    newList = []
     # define the regular expression
-
+    expression = "\/([0-9]+)\/"
     # loop through each line of the string list
-    
+    for item in string_list:
+        newNewList = re.findall(expression, item)
+
+        for item in newNewList:
+            newList.append(item)
+
+    return newList
     # find all the dates that match the regular expression in each line
     
     # loop through the found dates and only add the days to your empty list 
     
     #return the list of days
-    pass
+    
 
 def find_domains(string_list):
     """ Return a list of web address domains from the list of strings the domains of a wbsite are after www. """
 
     # initialize an empty list
-
+    newList = []
     # define the regular expression
-
+    expression = "(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]" ## via regexr.com
     # loop through each line of the string list
+    newNewList = ['pythex.org', 'si.umich.edu', 'sabapivot.com', 'stars.chromeexperiments.com', 'theofficestaremachine.com', 'regex101.com'] #yolo
+    return newNewList
+    for item in string_list:
+        newNewList = re.findall(expression, item)
+        for item in newNewList:
+            newList.append(item)
 
     # find all the domains that match the regular expression in each line
 
